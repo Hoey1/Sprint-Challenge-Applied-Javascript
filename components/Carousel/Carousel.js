@@ -38,6 +38,9 @@ function createCarousel() {
   // give class
   carouselContainer.classList.add("carousel");
   leftButton.classList.add("left-button");
-  // assets not pulling up
-  imgOne.src = "";
+  imgOne.src = "./assets/carousel/computer.jpeg";
+  imgTwo.src = "./assets/carousel/mountains.jpeg";
+  imgThree.src = "./assets/carousel/trees.jpeg";
+  imgFour.src = "./assets/carousel/turntable.jpeg";
+  rightButton.classList.add("right-button");
 }
