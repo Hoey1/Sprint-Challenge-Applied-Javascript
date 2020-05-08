@@ -43,4 +43,6 @@ function createCarousel() {
   imgThree.src = "./assets/carousel/trees.jpeg";
   imgFour.src = "./assets/carousel/turntable.jpeg";
   rightButton.classList.add("right-button");
+
+  // button click handlers... totally stuck
 }
