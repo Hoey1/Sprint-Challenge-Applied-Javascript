@@ -25,4 +25,19 @@ function createCarousel() {
   const imgTwo = document.createElement("img");
   const imgThree = document.createElement("img");
   const imgFour = document.createElement("img");
+  const rightButton = document.createElement("div");
+
+  // append
+  carouselContainer.appendChild(leftButton);
+  carouselContainer.appendChild(imgOne);
+  carouselContainer.appendChild(imgTwo);
+  carouselContainer.appendChild(imgThree);
+  carouselContainer.appendChild(imgFour);
+  carouselContainer.appendChild(rightButton);
+
+  // give class
+  carouselContainer.classList.add("carousel");
+  leftButton.classList.add("left-button");
+  // assets not pulling up
+  imgOne.src = "";
 }
