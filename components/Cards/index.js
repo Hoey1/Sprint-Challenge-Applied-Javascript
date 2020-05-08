@@ -51,9 +51,71 @@ function createArticleCard(headline, author, imgSrc) {
   return cardContainer;
 }
 
+// axios get part
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  // good
+  .then((response) => {
+    const jsArray = response.data.articles.javascript;
+    const bsArray = response.data.articles.bootstrap;
+    const techArray = response.data.articles.technology;
+    const jqArray = response.data.articles.jquery;
+    const nodeArray = response.data.articles.node;
+
+    jsArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+
+    bsArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+
+    techArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+
+    jqArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+
+    nodeArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+  });
+
 // {
 //     "articles": {
-//         "javascript": [
+//         "javascript": [ //? jsArray
 //             {
 //                 "headline": "ES8: The Next Step in the Evolution of Javascript and What it Means For Your Projects",
 //                 "authorPhoto": "./assets/sir.jpg",
@@ -75,7 +137,7 @@ function createArticleCard(headline, author, imgSrc) {
 //                 "authorName": "SIR RUFF'N'STUFF"
 //             }
 //         ],
-//         "bootstrap": [
+//         "bootstrap": [ //? bsArray
 //             {
 //                 "headline": "Bootstrap 5: Get a Sneak Peak at all the New Features",
 //                 "authorPhoto": "./assets/fido.jpg",
@@ -92,7 +154,7 @@ function createArticleCard(headline, author, imgSrc) {
 //                 "authorName": "MAX GOODBOYE"
 //             }
 //         ],
-//         "technology": [
+//         "technology": [ //? techArray
 //             {
 //                 "headline": "AI: What Are the Ethical Ramifications of the Future?",
 //                 "authorPhoto": "./assets/max.jpg",
@@ -109,7 +171,7 @@ function createArticleCard(headline, author, imgSrc) {
 //                 "authorName": "MAX GOODBOYE"
 //             }
 //         ],
-//         "jquery": [
+//         "jquery": [ //? jqArray
 //             {
 //                 "headline": "History of Javascript Libraries: from jQuery to React",
 //                 "authorPhoto": "./assets/puppers.jpg",
@@ -126,7 +188,7 @@ function createArticleCard(headline, author, imgSrc) {
 //                 "authorName": "FIDO WALKSALOT"
 //             }
 //         ],
-//         "node": [
+//         "node": [ //? nodeArray
 //             {
 //                 "headline": "Node.js in 2018: Which Framework? Express, Sails, Hapi?",
 //                 "authorPhoto": "./assets/sir.jpg",
