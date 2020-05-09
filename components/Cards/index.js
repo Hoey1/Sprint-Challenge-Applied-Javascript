@@ -20,7 +20,10 @@
 //
 // Use your function to create a card for each of the articles and add the card to the DOM.
 
-function createArticleCard(headline, author, imgSrc) {
+function createArticleCard(data) {
+  // * deconstructing data
+  const { headline, authorPhoto, authorName } = data;
+
   // create
   const cardContainer = document.createElement("div");
   const cardHeadline = document.createElement("div");
@@ -44,8 +47,10 @@ function createArticleCard(headline, author, imgSrc) {
 
   // textContent
   cardHeadline.textContent = headline;
-  cardImageContainer.src = imgSrc;
-  cardAuthorName.textContent = author;
+  // * you had this set to cardImageContainer
+  cardImage.src = authorPhoto;
+  // cardImageContainer.src = imgSrc;
+  cardAuthorName.textContent = authorName;
 
   // return
   return cardContainer;
@@ -55,6 +60,21 @@ function createArticleCard(headline, author, imgSrc) {
 axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
   // good
+  // .then((response) => {
+  //   const cardsContainer = document.querySelector(".cards-container");
+
+  //   // * looping through response's object
+
+  //   for (const item in response.data.articles) {
+  //     // * iterating through one layer deeper where card data lives
+
+  //     response.data.articles[item].forEach((article) => {
+  //       // * appending function, passing data (article) to each card
+
+  //       cardsContainer.append(createArticleCard(article));
+  //     });
+  //   }
+  // })
   .then((response) => {
     const jsArray = response.data.articles.javascript;
     const bsArray = response.data.articles.bootstrap;
