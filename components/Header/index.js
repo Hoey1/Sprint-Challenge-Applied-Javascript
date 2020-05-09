@@ -36,6 +36,7 @@ function Header(header, date, temp) {
   // return
   return headerContainer;
 }
+
 let headerParent = document.querySelector("div.header-container");
-let newHeaderObj = Header("SMARCH 28, 2019", "Lambda Times", "98°");
+let newHeaderObj = Header("Lambda Times", "SMARCH 28, 2019", "98°");
 headerParent.appendChild(newHeaderObj);
