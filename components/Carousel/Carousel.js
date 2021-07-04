@@ -17,3 +17,32 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function createCarousel() {
+  const carouselContainer = document.createElement("div");
+  const leftButton = document.createElement("div");
+  const imgOne = document.createElement("img");
+  const imgTwo = document.createElement("img");
+  const imgThree = document.createElement("img");
+  const imgFour = document.createElement("img");
+  const rightButton = document.createElement("div");
+
+  // append
+  carouselContainer.appendChild(leftButton);
+  carouselContainer.appendChild(imgOne);
+  carouselContainer.appendChild(imgTwo);
+  carouselContainer.appendChild(imgThree);
+  carouselContainer.appendChild(imgFour);
+  carouselContainer.appendChild(rightButton);
+
+  // give class
+  carouselContainer.classList.add("carousel");
+  leftButton.classList.add("left-button");
+  imgOne.src = "./assets/carousel/computer.jpeg";
+  imgTwo.src = "./assets/carousel/mountains.jpeg";
+  imgThree.src = "./assets/carousel/trees.jpeg";
+  imgFour.src = "./assets/carousel/turntable.jpeg";
+  rightButton.classList.add("right-button");
+
+  // button click handlers... totally stuck
+}

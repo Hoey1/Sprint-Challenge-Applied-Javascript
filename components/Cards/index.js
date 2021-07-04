@@ -1,3 +1,4 @@
+// initial save
 // STEP 3: Create article cards.
 // -----------------------
 // Send an HTTP GET request to the following address: https://lambda-times-backend.herokuapp.com/articles
@@ -18,3 +19,99 @@
 // </div>
 //
 // Use your function to create a card for each of the articles and add the card to the DOM.
+
+function createArticleCard(headline, author, imgSrc) {
+  // create
+  const cardContainer = document.createElement("div");
+  const cardHeadline = document.createElement("div");
+  const cardAuthor = document.createElement("div");
+  const cardImageContainer = document.createElement("div");
+  const cardImage = document.createElement("img");
+  const cardAuthorName = document.createElement("span");
+
+  // append
+  cardContainer.appendChild(cardHeadline);
+  cardContainer.appendChild(cardAuthor);
+  cardAuthor.appendChild(cardImageContainer);
+  cardImageContainer.appendChild(cardImage);
+  cardAuthor.appendChild(cardAuthorName);
+
+  // give class
+  cardContainer.classList.add("card");
+  cardHeadline.classList.add("headline");
+  cardAuthor.classList.add("author");
+  cardImageContainer.classList.add("img-container");
+
+  // textContent
+  cardHeadline.textContent = headline;
+  cardImageContainer.src = imgSrc;
+  cardAuthorName.textContent = author;
+
+  // return
+  return cardContainer;
+}
+
+// axios get part
+axios
+  .get("https://lambda-times-backend.herokuapp.com/articles")
+  // good
+  .then((response) => {
+    const jsArray = response.data.articles.javascript;
+    const bsArray = response.data.articles.bootstrap;
+    const techArray = response.data.articles.technology;
+    const jqArray = response.data.articles.jquery;
+    const nodeArray = response.data.articles.node;
+
+    jsArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+
+    bsArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+
+    techArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+
+    jqArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+
+    nodeArray.forEach((article) => {
+      const newArticleCard = createArticleCard(
+        article.headline,
+        article.authorPhoto,
+        article.authorName
+      );
+      const articleParent = document.querySelector("div.cards-container");
+      articleParent.appendChild(newArticleCard);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
